@@ -1,121 +1,109 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>P4 Misión 1/4 Microbit</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-    }
-
-    .banner {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px;
-      cursor: pointer;
-      margin-bottom: 10px;
-    }
-
-    .banner.optional {
-      background-color: #FF9800;
-    }
-
-    .banner .title {
-      font-size: 1.2em;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .banner .subtitle {
-      font-size: 1em;
-      margin-top: 5px;
-      border-top: 1px solid white;
-      padding-top: 5px;
-    }
-
-    .banner .summary {
-      font-size: 0.9em;
-      color: white;
-    }
-
-    .content {
-      display: none;
-      padding: 10px;
-      border: 1px solid #ddd;
-      margin-bottom: 10px;
-    }
-
-    .content .section {
-      margin-bottom: 15px;
-    }
-
-    .content .section-title {
-      font-weight: bold;
-      color: #333;
-      margin-bottom: 5px;
-    }
-
-    .content .step {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 10px;
-    }
-
-    .content .step-number {
-      background-color: #4CAF50;
-      color: white;
-      border-radius: 50%;
-      width: 25px;
-      height: 25px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 10px;
-      flex-shrink: 0;
-    }
-
-    .content .step-number-optional {
-      background-color: #FF9800;
-    }
-
-    .content .step-description {
-      flex-grow: 1;
-    }
-
-    .dialogue {
-      background-color: #f0f0f0;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 10px;
-      margin: 10px 0;
-      text-align: right;
-      font-style: italic;
-    }
-
-    .activity-icon {
-      margin-right: 10px;
-    }
-
-    .dropdown {
-      margin-bottom: 20px;
-    }
-
-    .dropdown select {
-      font-size: 1em;
-      padding: 5px;
-      margin-left: 10px;
-    }
-
-    .time-title {
-      font-size: 1.5em;
-      margin-bottom: 10px;
-    }
-  </style>
-  <script>
-    function toggleContent(id) {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P4 Misión 1/4 Microbit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner.optional {
+            background-color: #FF9800;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .banner .summary {
+            font-size: 0.9em;
+            color: white;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .content .section {
+            margin-bottom: 15px;
+        }
+        .content .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .content .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        .content .step-number {
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        .content .step-number-optional {
+            background-color: #FF9800;
+        }
+        .content .step-description {
+            flex-grow: 1;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .activity-icon {
+            margin-right: 10px;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .note {
+            background-color: #ffeb3b;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function toggleContent(id) {
             var content = document.getElementById(id);
             if (content.style.display === "none") {
                 content.style.display = "block";
@@ -141,191 +129,212 @@
                 document.getElementById('activity-5').style.display = 'none';
             }
         }
-  </script>
+    </script>
 </head>
-
 <body onload="updateActivities()">
 
-  <h1>P4 Misión 1/4 Microbit</h1>
+<h1>P4 Misión 1/4 Microbit</h1>
 
-  <div class="dropdown">
+<div class="note">
+    <strong>PREPARACIÓN DE MISIÓN:</strong>
+    <p>Antes de iniciar la misión carga <a href="https://makecode.microbit.org/S35094-68270-31142-46989" target="_blank">este programa</a> a los microbits. Aquí hay un <a href="https://youtu.be/oSyv5ALZgDA?si=r-8oSq-yUnZTEz5S&t=43" target="_blank">tutorial</a> para cargar el programa en los microbits.</p>
+</div>
+
+<div class="dropdown">
     <label for="time-select">Tiempo efectivo de Clase:</label>
     <select id="time-select" onchange="updateActivities()">
         <option value="50">50 minutos</option>
         <option value="45">45 minutos</option>
         <option value="40">40 minutos</option>
     </select>
-  </div>
+</div>
 
-  <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+<h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
 
-  <div id="activity-1" class="activity">
+<div id="activity-1" class="activity">
     <div class="banner" onclick="toggleContent('saludo')">
-      <div class="title">
-        <span>📚 Actividad 1</span>
-        <span>⏰ Tiempo: 2 minutos</span>
-      </div>
-      <div class="subtitle">Saludo</div>
-      <div class="summary">Dar la bienvenida a los estudiantes y preparar el ambiente para la lección.</div>
+        <div class="title">
+            <span>📚 Actividad 1</span>
+            <span>⏰ Tiempo: 2 minutos</span>
+        </div>
+        <div class="subtitle">Saludo</div>
+        <div class="summary">Dar la bienvenida a los estudiantes y preparar el ambiente para la lección.</div>
     </div>
     <div id="saludo" class="content">
-      <div class="section">
-        <div class="section-title">Diálogo del Maestro</div>
-        <div class="dialogue">¡Buenos días, exploradores digitales! ¿Están listos para una nueva misión?</div>
-      </div>
-      <div class="section">
-        <div class="section-title">Acción</div>
-        <p>Correr el ritual de saludo de Gnius Club.</p>
-        <p>Reproduce los objetivos de la misión.</p>
-      </div>
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Buenos días, exploradores digitales! ¿Están listos para una nueva misión?</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Acción</div>
+            <p>Correr el ritual de saludo de Gnius Club.</p>
+            <p>Reproduce los objetivos de la misión.</p>
+        </div>
     </div>
-  </div>
+</div>
 
-  <div id="activity-2" class="activity">
+<div id="activity-2" class="activity">
     <div class="banner" onclick="toggleContent('innovacion')">
-      <div class="title">
-        <span>📚 Actividad 2</span>
-        <span>⏰ Tiempo: 2 minutos</span>
-      </div>
-      <div class="subtitle">Innovación del Día</div>
-      <div class="summary">Mostrar un video sobre el robot quirúrgico Versius y discutir qué tipo de innovación es.
-      </div>
+        <div class="title">
+            <span>📚 Actividad 2</span>
+            <span>⏰ Tiempo: 2 minutos</span>
+        </div>
+        <div class="subtitle">Innovación del Día</div>
+        <div class="summary">Mostrar un video sobre el robot quirúrgico Versius y discutir qué tipo de innovación es.</div>
     </div>
     <div id="innovacion" class="content">
-      <div class="section">
-        <div class="section-title">Diálogo del Maestro</div>
-        <div class="dialogue">La innovación que vamos a conocer hoy funciona gracias a una tecnología que se llama
-          microcontrolador. Vamos a ver cómo un robot quirúrgico utiliza esta tecnología para ayudar a los doctores en
-          las cirugías.</div>
-      </div>
-      <div class="section">
-        <div class="section-title">Acción</div>
-        <p>Mostrar un video corto sobre el robot quirúrgico Versius.</p>
-        <p><a href="https://youtu.be/6mhu4E_cZ5Q" target="_blank">Ver Video</a></p>
-      </div>
-      <div class="section">
-        <div class="section-title">Pregunta</div>
-        <p>¿Qué tipo de innovación creen que es esta tecnología médica?</p>
-        <ul>
-          <li>A. Innovación de Producto</li>
-          <li>B. Innovación de Proceso</li>
-        </ul>
-        <div class="dialogue"><strong>Respuesta:</strong> Esta es una Innovación de Producto.</div>
-      </div>
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">La innovación que vamos a conocer hoy funciona gracias a una tecnología que se llama microcontrolador. Vamos a ver cómo un robot quirúrgico utiliza esta tecnología para ayudar a los doctores en las cirugías.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Acción</div>
+            <p>Mostrar un video corto sobre el robot quirúrgico Versius.</p>
+            <p><a href="https://youtu.be/6mhu4E_cZ5Q" target="_blank">Ver Video</a></p>
+        </div>
+        <div class="section">
+            <div class="section-title">Pregunta</div>
+            <p>¿Qué tipo de innovación creen que es esta tecnología médica?</p>
+            <ul>
+                <li>A. Innovación de Producto</li>
+                <li>B. Innovación de Proceso</li>
+            </ul>
+            <div class="dialogue"><strong>Respuesta:</strong> Esta es una Innovación de Producto.</div>
+        </div>
     </div>
-  </div>
+</div>
 
-  <div id="activity-3" class="activity">
+<div id="activity-3" class="activity">
     <div class="banner" onclick="toggleContent('componentes')">
-      <div class="title">
-        <span>📚 Actividad 3</span>
-        <span>⏰ Tiempo: 2 minutos</span>
-      </div>
-      <div class="subtitle">Explicación de Componentes</div>
-      <div class="summary">Reproducir un video sobre los componentes del micro:bit.</div>
+        <div class="title">
+            <span>📚 Actividad 3</span>
+            <span>⏰ Tiempo: 2 minutos</span>
+        </div>
+        <div class="subtitle">Explicación de Componentes</div>
+        <div class="summary">Reproducir un video sobre los componentes del micro:bit.</div>
     </div>
     <div id="componentes" class="content">
-      <div class="section">
-        <div class="section-title">Diálogo del Maestro</div>
-        <div class="dialogue">Ahora vamos a aprender sobre los componentes del micro:bit que usaremos hoy. Presten mucha
-          atención al video porque luego haremos un juego.</div>
-      </div>
-      <div class="section">
-        <div class="section-title">Acción</div>
-        <p>Reproducir un video corto que explique los componentes del micro:bit.</p>
-        <p><a href="https://youtu.be/oce1KusXPPk?si=YwtgY89XmKnVxI5x" target="_blank">Ver Video</a></p>
-      </div>
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora vamos a aprender sobre los componentes del micro:bit que usaremos hoy. Presten mucha atención al video porque luego haremos un juego.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Acción</div>
+            <p>Reproducir un video corto que explique los componentes del micro:bit.</p>
+            <p><a href="https://youtu.be/oce1KusXPPk?si=YwtgY89XmKnVxI5x" target="_blank">Ver Video</a></p>
+        </div>
     </div>
-  </div>
+</div>
 
 <div id="activity-4" class="activity 50">
-  <div class="banner" onclick="toggleContent('juego')">
-    <div class="title">
-      <span>📚 Actividad 4</span>
-      <span>⏰ Tiempo: 5 minutos</span>
+    <div class="banner" onclick="toggleContent('juego')">
+        <div class="title">
+            <span>📚 Actividad 4</span>
+            <span>⏰ Tiempo: 5 minutos</span>
+        </div>
+        <div class="subtitle">Juego Rápido</div>
+        <div class="summary">Usar Kahoot para un juego interactivo sobre los componentes del micro:bit.</div>
     </div>
-    <div class="subtitle">Juego Rápido</div>
-    <div class="summary">Usar Kahoot para un juego interactivo sobre los componentes del micro:bit.</div>
-  </div>
-  <div id="juego" class="content">
-    <div class="section">
-      <div class="section-title">Actividad</div>
-      <p>Usar Kahoot para un juego interactivo donde los estudiantes respondan preguntas sobre los componentes del
-        micro:bit.</p>
+    <div id="juego" class="content">
+        <div class="section">
+            <div class="section-title">Actividad</div>
+            <p>Usar Kahoot para un juego interactivo donde los estudiantes respondan preguntas sobre los componentes del micro:bit.</p>
+            <p><a href="https://create.kahoot.it/share/conoces-al-microbit/8b2a66ef-c3d5-4777-824b-a67b38427c3e" target="_blank">Jugar Kahoot</a></p>
+        </div>
     </div>
-  </div>
 </div>
 
 <div id="activity-5" class="activity">
-  <div class="banner" onclick="toggleContent('proyecto')">
-    <div class="title">
-      <span>📚 Actividad 5</span>
-      <span>⏰ Tiempo: 20 minutos</span>
+    <div class="banner" onclick="toggleContent('identificar-componentes')">
+        <div class="title">
+            <span>📚 Actividad 5</span>
+            <span>⏰ Tiempo: 5 minutos</span>
+        </div>
+        <div class="subtitle">Identificar Componentes</div>
+        <div class="summary">Identificar los componentes del micro:bit y experimentar con ellos.</div>
     </div>
-    <div class="subtitle">Desafío de Programación</div>
-    <div class="summary">Crear un programa en el micro:bit para sumar y restar con los botones A y B.</div>
-  </div>
-  <div id="proyecto" class="content">
-    <div class="section">
-      <div class="section-title">Introducción</div>
-      <div class="dialogue">Quiero que primero identifiquen los componentes que están en la pantalla. Luego, tienen que
-        buscar cómo hacer para que aparezcan en pantalla estos símbolos: Un cuadro, Un círculo, Una letra "A" y un
-        corazón que late.</div>
+    <div id="identificar-componentes" class="content">
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Quiero que primero identifiquen los componentes que están en la pantalla. Luego, tienen que buscar cómo hacer para que aparezcan en pantalla estos símbolos: Un cuadro, Un círculo, Una letra "A" y un corazón que late.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Acción</div>
+            <p>Formar equipos y repartir los micro:bits. Dejar que los estudiantes experimenten con ellos.</p>
+            <p>Pregunta quién pudo encontrar la forma de mostrar los 4 símbolos en pantalla.</p>
+        </div>
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¿Cómo le hago para que aparezca en pantalla un cuadro?</div>
+            <div class="dialogue">¿Cómo le hago para que aparezca en pantalla un círculo?</div>
+            <div class="dialogue">¿Cómo le hago para que aparezca en pantalla una letra "A"?</div>
+            <div class="dialogue">¿Cómo le hago para que aparezca en pantalla un corazón que late?</div>
+        </div>
     </div>
-    <div class="section">
-      <div class="section-title">Instrucción del Maestro</div>
-      <div class="dialogue">¿Cómo le hago para que aparezca en pantalla un cuadro?</div>
-      <div class="dialogue">¿Cómo le hago para que aparezca en pantalla un círculo?</div>
-      <div class="dialogue">¿Cómo le hago para que aparezca en pantalla una letra "A"?</div>
-      <div class="dialogue">¿Cómo le hago para que aparezca en pantalla un corazón que late?</div>
-    </div>
-    <div class="section">
-      <div class="section-title">Desafío</div>
-      <p>El reto es que con el botón A resten un número y con el botón B sumen uno. Que empiece en cero. Primero
-        programen en papel su lógica.</p>
-    </div>
-    <div class="section">
-      <div class="section-title">Programación</div>
-      <p>Escriban el código en bloques en el micro:bit para resolver el desafío.</p>
-    </div>
-  </div>
 </div>
 
 <div id="activity-6" class="activity">
-  <div class="banner" onclick="toggleContent('ayuda')">
-    <div class="title">
-      <span>📚 Actividad 6</span>
-      <span>⏰ Tiempo: 10 minutos</span>
+    <div class="banner" onclick="toggleContent('desafio-programacion')">
+        <div class="title">
+            <span>📚 Actividad 6</span>
+            <span>⏰ Tiempo: 15 minutos</span>
+        </div>
+        <div class="subtitle">Desafío de Programación</div>
+        <div class="summary">Crear un programa en el micro:bit para sumar y restar con los botones A y B.</div>
     </div>
-    <div class="subtitle">Asistencia y Colaboración</div>
-    <div class="summary">Los que ya terminaron ayudan a los que no pudieron resolver el reto.</div>
-  </div>
-  <div id="ayuda" class="content">
-    <div class="section">
-      <div class="section-title">Instrucción del Maestro</div>
-      <div class="dialogue">Si ya terminaste tu programa, por favor, ayuda a un compañero que aún no ha terminado.</div>
+    <div id="desafio-programacion" class="content">
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Pongan atención porque voy a enseñarles cómo mostrar números en la pantalla. Yo les enseño y ustedes lo van haciendo en su computadora.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Acción</div>
+            <p>Reproducir las diapositivas y mostrar paso a paso cómo se pone el número 3 en la pantalla del micro:bit.</p>
+        </div>
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">El reto de hoy consiste en hacer un programa que con el botón A resten un número y con el botón B sumen uno. Que empiece en cero. No olviden programar la lógica en papel y luego hacer el código.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Acción</div>
+            <p>Reproducir el reto en pantalla.</p>
+        </div>
     </div>
-  </div>
 </div>
 
-<div id="activity-7" class="activity optional">
-  <div class="banner optional" onclick="toggleContent('evaluacion')">
-    <div class="title">
-      <span>📚 Actividad 7</span>
-      <span>⏰ Tiempo: 5 minutos</span>
+<div id="activity-7" class="activity">
+    <div class="banner" onclick="toggleContent('ayuda')">
+        <div class="title">
+            <span>📚 Actividad 7</span>
+            <span>⏰ Tiempo: 10 minutos</span>
+        </div>
+        <div class="subtitle">Asistencia y Colaboración</div>
+        <div class="summary">Los que ya terminaron ayudan a los que no pudieron resolver el reto.</div>
     </div>
-    <div class="subtitle">Evaluación</div>
-    <div class="summary">Evaluar los programas de los compañeros.</div>
-  </div>
-  <div id="evaluacion" class="content">
-    <div class="section">
-      <div class="section-title">Instrucción del Maestro</div>
-      <div class="dialogue">Ahora vamos a evaluar el trabajo de nuestros compañeros. Revisen si el programa suma y resta
-        correctamente usando los botones A y B.</div>
+    <div id="ayuda" class="content">
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Si ya terminaste tu programa, por favor, ayuda a un compañero que aún no ha terminado.</div>
+        </div>
     </div>
-  </div>
+</div>
+
+<div id="activity-8" class="activity">
+    <div class="banner" onclick="toggleContent('evaluacion')">
+        <div class="title">
+            <span>📚 Actividad 8</span>
+            <span>⏰ Tiempo: 5 minutos</span>
+        </div>
+        <div class="subtitle">Evaluación</div>
+        <div class="summary">Evaluar los programas de los compañeros.</div>
+    </div>
+    <div id="evaluacion" class="content">
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora vamos a evaluar el trabajo de nuestros compañeros. Revisen si el programa suma y resta correctamente usando los botones A y B.</div>
+        </div>
+    </div>
 </div>
 
 </body>
-
 </html>
